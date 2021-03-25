@@ -1,0 +1,20 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: "{{ .Values.ingress.name}}"
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host:  "{{ .Values.ingress.dns}}"
+    http:
+      paths:
+        - path:  "{{ .Values.app1.path}}"
+          backend:
+            serviceName: "{{ .Values.app1.Name}}-service"
+            servicePort: {{ .Values.app1.port}}
+        - path:  "{{ .Values.app2.path}}"
+          backend:
+            serviceName: "{{ .Values.app2.Name}}-service"
+            servicePort: {{ .Values.app2.port}}
+

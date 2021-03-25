@@ -1,0 +1,19 @@
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+app1:
+  Name: app1
+  port: 5678 
+  replicas: 1
+  text: app1_text
+  image: hashicorp/http-echo
+  path: /*
+app2:
+  Name: app2
+  port: 5678
+  replicas: 1
+  text: app2_text
+  image: hashicorp/http-echo
+  path: /app2
+ingress:
+  name: ingress
+  dns: a7893f4ca3abd4ee1920f41ff750528c-531e43a894cd4e0f.elb.us-east-2.amazonaws.com 

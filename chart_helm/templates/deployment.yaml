@@ -1,0 +1,28 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: "{{ .Values.app1.Name}}"
+  labels:
+    app: "{{ .Values.app1.Name}}"
+spec:
+  containers:
+    - name: "{{ .Values.app1.Name}}"
+      image: "{{ .Values.app1.image}}"
+      args:
+        - "-text={{ .Values.app1.text}}"
+
+---
+
+
+kind: Pod
+apiVersion: v1
+metadata:
+  name: "{{ .Values.app2.Name}}"
+  labels:
+    app: "{{ .Values.app2.Name}}"
+spec:
+  containers:
+    - name: "{{ .Values.app2.Name}}"
+      image: "{{ .Values.app2.image}}"
+      args:
+        - "-text={{ .Values.app2.text}}"
